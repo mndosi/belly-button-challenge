@@ -1,28 +1,28 @@
-
-
 let sample_data = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json"
 
 function init(){
   let selector = d3.select("#selDataset");
   d3.json(sample_data).then((data)=>{
-    let sample_names = data.names;
-    sample_names.forEach((sample)=> {
+    let subject_ids = data.names;
+    subject_ids.forEach((subject_id)=> {
       selector
         .append("option")
-        .text(sample)
-        .property("value", sample);
+        .text(subject_id)
+        .property("value", subject_id);
     });
-      let first_sample = sample_names[0];
-      console.log(first_sample);
-      buildcharts(first_sample);
+      let first_subject_id = subject_ids[0];
+      console.log(first_subject_id);
+      buildcharts(first_subject_id);
       });
 }
 init();
 
+
+
 function buildcharts(sample){
 
 // Fetch the JSON data and console log it
-d3.json(sample_data).then((data)=> {
+  d3.json(sample_data).then((data)=> {
     console.log(data);
   
   //creating variables to store the sample array, first sample, ids, labels, and values
@@ -96,10 +96,12 @@ Plotly.newPlot("bubble", bubbleData, bubbleLayout);
 // to Display the Demographic Metadata information
 
 // setting up variables to hold the demographic information
+// let panel_data = d3.select("#sample-metadata");
+let panel = d3.select(".panel-body");
 
-let id = first_sample.id;
-let ethnicity = first_sample.ethnicity;
-let gender = first_sample.gender;
+let id = panel_data.id;
+let ethnicity = panel_data.ethnicity;
+let gender = panel_data.gender;
 let age = first_sample.age;
 let location = first_sample.location;
 let bbtype = first_sample.bbtype;
@@ -117,6 +119,41 @@ let myPanel = {
 });
 }
 
+function optionChanged(subject_id) {
+  console.log(subject_id);
+  getMetadata(subject_id);
+}
+
+// Function called by DOM changes
+
+//   function updatePlotly() {
+//     // Use D3 to select the dropdown menu
+//     let selector = d3.selectALL("#selDataset").on("change", updatePlotly);
+//     // Assign the value of the dropdown menu option to a variable
+//     let sample_names = data.names;
+//     if (sample_names === 'first_sample.name') {
+//       return name_data
+//     }
+//     else if (dataset === 'dataset2') {
+  
+  
+//     // Note the extra brackets around 'x' and 'y'
+//     Plotly.restyle("plot", "x", [x]);
+//     Plotly.restyle("plot", "y", [y]);
+//   }
+  
+//   init();
+//   }
+// // Call function to update the chart
+//   updatePlotly(data);
+// }
+
+// // Update the restyled plot's values
+// function updatePlotly(newdata) {
+//   Plotly.restyle("pie", "values", [newdata]);
+// }
+
+// init();
 
 // // function buildBubbleChart(sample) {
 
