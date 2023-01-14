@@ -96,25 +96,25 @@ Plotly.newPlot("bubble", bubbleData, bubbleLayout);
 // to Display the Demographic Metadata information
 
 // setting up variables to hold the demographic information
-// let panel_data = d3.select("#sample-metadata");
+let panel_data = d3.select("#sample-metadata");
 let panel = d3.select(".panel-body");
 
-let id = panel_data.id;
-let ethnicity = panel_data.ethnicity;
-let gender = panel_data.gender;
-let age = first_sample.age;
-let location = first_sample.location;
-let bbtype = first_sample.bbtype;
-let wfreq = first_sample.wfreq;
+// let id = panel_data.id;
+// let ethnicity = panel_data.ethnicity;
+// let gender = panel_data.gender;
+// let age = first_sample.age;
+// let location = first_sample.location;
+// let bbtype = first_sample.bbtype;
+// let wfreq = first_sample.wfreq;
 
-let myPanel = {
-    "id: ": otu_ids,
-    "ethnicity: ": ethnicity,
-    "gender: ": gender,
-    "age: ": age,
-    "location: ": location,
-    "bbtype: ": bbtype,
-    "wfreq:": wfreq,
+// let myPanel = {
+//     "id: ": otu_ids,
+//     "ethnicity: ": ethnicity,
+//     "gender: ": gender,
+//     "age: ": age,
+//     "location: ": location,
+//     "bbtype: ": bbtype,
+//     "wfreq:": wfreq,
 }
 });
 }
